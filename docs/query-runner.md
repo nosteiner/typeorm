@@ -41,7 +41,7 @@ const queryRunner: QueryRunner = connection.createQueryRunner();
 await queryRunner.connect(); // performs connection
 ```
 
-Since the `QueryRunner` is used to manage an isolated database connection, make sure to release it when it is not needed anymroe to make it avalable to the connection pool again. After connection is releasedo is is not possible to use the query runner methods.
+Since the `QueryRunner` is used to manage an isolated database connection, make sure to release it when it is not needed anymore to make it available to the connection pool again. After connection is released is is not possible to use the query runner methods.
 
 ## Working with `QueryRunner`
 
