@@ -55,7 +55,7 @@ export class UserController {
 
 
     @Get("/users")
-    getAll() {
+    getAll(): Promise<User[]> {
 		// can be used once createConnection is called and is resolved
 		const connection: Connection = getConnection();
 
@@ -63,9 +63,11 @@ export class UserController {
 
 		await queryRunner.connect(); // performs connection
 
-        return queryRunner.manager.find(User);
+        const users = await queryRunner.manager.find(User);
 
 		await queryRunner.release(); // release connection
+		
+		return users
     }
 
 }
